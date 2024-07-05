@@ -1,13 +1,14 @@
 import tkinter as tk
-from tkinter import ttk 
-
+#from tkinter import ttk
+import ttkbootstrap as ttk
 
 def convert():
-    print(entryint.get())
-
+    mile_input = entry_int.get()
+    km_output = mile_input * 1.61
+    output_string.set(km_output)
 
 # window
-window = tk.Tk()
+window = ttk.Window(themename= 'darkly')
 window.title('demo')
 window.geometry('300x150')
 
@@ -27,7 +28,11 @@ input_frame.pack(pady = 10)
 
 #output
 output_string = tk.StringVar()
-output_label = ttk.Label(master = window, text = "Output", font = 'Helvetica')
+output_label = ttk.Label(
+    master = window, 
+    text = "Output",
+    font = 'Helvetica',
+    textvariable= output_string)
 output_label.pack(pady = 5)
 
 #run
